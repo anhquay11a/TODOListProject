@@ -67,16 +67,18 @@ public class WorkController {
 	}
 	
 	// Get All Works
-	@GetMapping("/work")
-	public ResponseEntity<List<Work>> getAllWorks() {
-		List<Work> listWorks = workRepository.findAll();
-		if(listWorks.isEmpty()) {
-			return new ResponseEntity<List<Work>>(HttpStatus.NO_CONTENT);
-		}
-	    return new ResponseEntity<List<Work>>(workRepository.findAll(), HttpStatus.OK);
-	}
+	// Use Repository
+//	@GetMapping("/works")
+//	public ResponseEntity<List<Work>> getAllWorks() {
+//		List<Work> listWorks = workRepository.findAll();
+//		if(listWorks.isEmpty()) {
+//			return new ResponseEntity<List<Work>>(HttpStatus.NO_CONTENT);
+//		}
+//	    return new ResponseEntity<List<Work>>(workRepository.findAll(), HttpStatus.OK);
+//	}
 	
 	// Get All Works
+	// Use native SQL
 	@GetMapping("/works")
 	public Map<String, Object> fetchAll() {
 		return workService.fetchAll();

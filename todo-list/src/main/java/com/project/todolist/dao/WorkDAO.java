@@ -18,17 +18,10 @@ public class WorkDAO {
 	@SuppressWarnings("unchecked")
 	public List<Work> findAll() {
 		StringBuilder sql = new StringBuilder();
-		sql.append(" SELECT * ");
-//		sql.append(" ,CASE ");
-//		sql.append(" WHEN wk.status = 1 THEN 'Planning' ");
-//		sql.append(" WHEN wk.status = 2 THEN 'Doing' ");
-//		sql.append(" ELSE 'Complete' ");
-//		sql.append(" END  AS status ");
+		sql.append(" SELECT wk.work_id, wk.work_name, wk.starting_date, wk.ending_date, wk.status ");
 		sql.append(" FROM WORK AS wk ");
 		sql.append(" ORDER BY wk.WORK_ID DESC ");
-		
 		Query query = entityManager.createNativeQuery(sql.toString(), Work.class);
-//		System.out.print("1212121212: " + sql.toString());
 		
 		return query.getResultList();
 	}
