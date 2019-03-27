@@ -29,7 +29,6 @@ public class PaginationService {
 		Pageable pageable = new PageRequest(page, size, sort);
 		Page<Work> data = paginationDao.findAll(pageable);
 		
-//		Page<Work> data = (Page<Work>) paginationDao.findAll(new Sort(Sort.Direction.DESC, orderBy));
 		return data;
 	}
 
